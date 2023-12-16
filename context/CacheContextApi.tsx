@@ -4,17 +4,17 @@ import { createContext, useContext, useState } from 'react';
 
 const ApiCacheContext = createContext();
 
-export const ApiCacheProvider = ({ children }) => {
-    const [apiCache, setApiCache] = useState({});
+export const ApiCacheProvider = ({ children }: any) => {
+    const [apiCache, setApiCache] = useState<any>({});
 
-    const cacheApiResponse = (key, data) => {
+    const cacheApiResponse = (key: string, data: any) => {
         setApiCache((prevCache) => ({
             ...prevCache,
             [key]: data,
         }));
     };
 
-    const getCachedApiResponse = (key) => apiCache[key];
+    const getCachedApiResponse = (key: string) => apiCache[key];
 
     return (
         <ApiCacheContext.Provider value={{ cacheApiResponse, getCachedApiResponse }}>

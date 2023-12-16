@@ -28,9 +28,9 @@ export default function RootLayout({
   return (
     <html lang={params.locale}>
       <body className={inter.className}>
-        <TopBar locale={params.locale} />
         <ApiCacheProvider>
           <QueryProvider>
+            <TopBar locale={params.locale} />
             <Navbar locale={params.locale} />
             {children}
           </QueryProvider>
